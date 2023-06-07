@@ -12,7 +12,44 @@
   <input type="file" id="fileInput" name="fileInput" accept="image/*, video/*" multiple>
   <input type="submit" value="Upload">
 </form>
+<script>
+  document.getElementById("uploadForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // Prevent the form from submitting normally
 
+  var fileInput = document.getElementById("fileInput");
+  var files = fileInput.files;
+
+  if (files.length > 0) {
+    var formData = new FormData();
+
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+      formData.append("files[]", file, file.name);
+    }
+
+    // Perform an AJAX request to handle the file upload
+    // You can use libraries like jQuery or the Fetch API to make the request
+    // Here's an example using jQuery:
+
+    $.ajax({
+      url: "upload.php", // Replace with the URL to your server-side upload script
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(response) {
+        // Handle the upload success response
+        console.log(response);
+      },
+      error: function(xhr, status, error) {
+        // Handle the upload error response
+        console.error(error);
+      }
+    });
+  }
+});
+
+  </script>
 </body>
 
 </html>
