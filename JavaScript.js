@@ -1,4 +1,4 @@
-<script>
+
 		function getLinkList() {
 			// Define your link list and password mappings here
 			return [
@@ -9,12 +9,11 @@
 	{ password: "hpbycxdw", link: "https://cloud.vocon-it.com/products" }
 			];
 		}
-</script>
 
 
 
 
-<script>
+
 		function getPasswordMap() {
 			// Define your password map here
 			return {
@@ -49,6 +48,6 @@
 			}
 			alert("Password is incorrect, please try again.");
 		}
-	</script>
+	
 
 
